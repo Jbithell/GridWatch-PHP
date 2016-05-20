@@ -1,5 +1,5 @@
 {
-    "name": "Jbithell/GridWatchPHP",
+    "name": "jbithell/gridwatch",
     "type": "library",
     "description": "PHP Wrapper for the UK National Grid Live Data",
     "keywords": ["electricity","grid"],
