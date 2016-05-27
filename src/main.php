@@ -15,5 +15,4 @@ class Grid {
 		return $DATA;
 	}
 }
-var_dump(Grid::get());
 ?>
