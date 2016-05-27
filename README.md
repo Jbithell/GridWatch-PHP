@@ -4,4 +4,4 @@
 
 ---
 
-Can't wait to get started? `composer require jbithell/gridwatch`
+Can't wait to get started? `composer require jbithell/gridwatch` and then call `Grid::get()`
