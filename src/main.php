@@ -12,6 +12,15 @@ class Grid {
 		foreach ($SERVERDATA['INST']['FUEL'] as $FUEL) {
 			$DATA['FUELS'][] = $FUEL["@attributes"];
 		}
+		
+		//Get Frequency
+		$xml = simplexml_load_string(file_get_contents("http://www.bmreports.com/bsp/additional/soapfunctions.php?output=XML&element=rollingfrequency&submit=Invoke"), "SimpleXMLElement", LIBXML_NOCDATA);
+		$SERVERFREQUENCYDATA = json_decode(json_encode($xml),TRUE); //Remove all the messy object stuff, again
+		unset($xml);
+		if (!isset($SERVERFREQUENCYDATA["ST"])) die("Unable to get data");
+		$SERVERFREQUENCYDATA = end($SERVERFREQUENCYDATA['ST']);
+		if (!isset($SERVERFREQUENCYDATA["@attributes"]['VAL'])) die("Unable to get data"); 
+		$DATA['FREQUENCY'] = $SERVERFREQUENCYDATA["@attributes"]['VAL'];
 		return $DATA;
 	}
 }
